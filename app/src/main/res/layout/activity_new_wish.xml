@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.dqpi.wishList.activity.NewWishActivity"/>
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="@color/dark_blue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.dqpi.wishList.activity.NewWishActivity">
+
+        <fragment
+            android:id="@+id/fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/new_wish_nav" />
+    </LinearLayout>
+</layout>

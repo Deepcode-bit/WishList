@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_wish_nav"
+    app:startDestination="@id/wishAddFragment">
+
+    <fragment
+        android:id="@+id/wishAddFragment"
+        android:name="com.dqpi.wishList.fragment.WishAddFragment"
+        android:label="fragment_wish_add"
+        tools:layout="@layout/fragment_wish_add" >
+        <action
+            android:id="@+id/action_wishAddFragment_to_emojiFragment"
+            app:destination="@id/emojiFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/emojiFragment"
+        android:name="com.dqpi.wishList.fragment.EmojiFragment"
+        android:label="fragment_emoji"
+        tools:layout="@layout/fragment_emoji" />
+</navigation>

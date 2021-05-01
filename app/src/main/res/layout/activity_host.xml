@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="activity"
+            type="com.dqpi.wishList.activity.HostActivity"/>
+    </data>
+
+    <LinearLayout
+        android:background="@color/dark_blue"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.dqpi.wishList.activity.HostActivity">
+
+        <LinearLayout
+            android:id="@+id/fragment_container"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:layout_marginEnd="50dp"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/radio_group"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <RadioButton
+                    android:id="@+id/radio1"
+                    style="@style/RadioGroupButtonStyle"
+                    android:textColor="@drawable/bottom_nav_selector"
+                    android:drawableTop="@drawable/home_selector"
+                    android:checked="true"
+                    android:text="首页" />
+
+                <RadioButton
+                    android:id="@+id/radio2"
+                    style="@style/RadioGroupButtonStyle"
+                    android:textColor="@drawable/bottom_nav_selector"
+                    android:drawableTop="@drawable/invitation_selector"
+                    android:text="日历" />
+
+                <RadioButton
+                    android:id="@+id/radio3"
+                    style="@style/RadioGroupButtonStyle"
+                    android:textColor="@drawable/bottom_nav_selector"
+                    android:drawableTop="@drawable/chart_selector"
+                    android:text="统计" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:transitionName="round_but"
+                android:onClick="@{(v)->activity.onNewWishClick(v)}"
+                android:layout_marginEnd="20dp"
+                android:gravity="center"
+                android:background="@drawable/cicler_bg"
+                android:layout_width="60dp"
+                android:layout_height="60dp">
+
+                <ImageView
+                    android:layout_gravity="center"
+                    android:id="@+id/radio4"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_add_circle_black_24dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

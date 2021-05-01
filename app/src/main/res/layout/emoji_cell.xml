@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:elevation="3dp"
+        android:id="@+id/emoji_bg"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:layout_width="60dp"
+        android:background="@drawable/cicler_bg2"
+        android:layout_height="60dp">
+    <TextView
+        android:textColor="#000"
+        android:gravity="center"
+        android:text="sda"
+        android:textSize="25sp"
+        android:id="@+id/unicode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>

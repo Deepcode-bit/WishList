@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="data"
+            type="com.dqpi.wishList.fragment.WishAddFragment"/>
+    </data>
+
+    <LinearLayout
+        android:onClick="@{data.onWishAddClick}"
+        android:orientation="vertical"
+        android:background="@color/dark_blue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.dqpi.wishList.activity.NewWishActivity">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:background="@drawable/half_radius_bg2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:onClick="@{(v)->data.requireActivity().onBackPressed()}"
+                android:transitionName="round_but"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:background="@drawable/cicler_bg2"
+                android:layout_height="70dp"
+                android:layout_width="70dp">
+
+                <ImageView
+                    android:src="@drawable/ic_cancel_black_24dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp" />
+            </LinearLayout>
+
+            <TextView
+                android:textSize="20sp"
+                android:textColor="#fff"
+                android:text="添加新愿望"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+
+            <EditText
+                android:singleLine="true"
+                android:text="@={data.viewModel.wishName}"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:padding="20dp"
+                android:hint="请输入愿望名称"
+                android:alpha="100"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/radius_bg2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp" />
+
+            <LinearLayout
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/radius_bg"
+                android:layout_height="200dp"
+                android:layout_width="match_parent">
+
+                <TextView
+                    android:layout_margin="20dp"
+                    android:textSize="18sp"
+                    android:textColor="#000"
+                    android:text="选择一个贴纸"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+
+                <RadioGroup
+                    android:id="@+id/sticker_group"
+                    android:checkedButton="@id/first_but"
+                    android:gravity="center"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+                    <RadioButton
+                        android:id="@+id/first_but"
+                        android:text="@{data.viewModel.stickers.get(0).getUnicode()}"
+                        android:elevation="3dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/sticker_selector"
+                        style="@style/RadioGroupRoundStyle" />
+
+                    <RadioButton
+                        android:id="@+id/second_but"
+                        android:text="@{data.viewModel.stickers.get(1).getUnicode()}"
+                        android:elevation="3dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/sticker_selector"
+                        style="@style/RadioGroupRoundStyle" />
+
+                    <RadioButton
+                        android:id="@+id/third_but"
+                        android:text="@{data.viewModel.stickers.get(2).getUnicode()}"
+                        android:elevation="3dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/sticker_selector"
+                        style="@style/RadioGroupRoundStyle" />
+
+                    <RadioButton
+                        android:id="@+id/fourth_but"
+                        android:text="@{data.viewModel.stickers.get(3).getUnicode()}"
+                        android:elevation="3dp"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/sticker_selector"
+                        style="@style/RadioGroupRoundStyle" />
+                </RadioGroup>
+
+                <Button
+                    android:onClick="@{data::onEmojiPageClick}"
+                    android:background="@drawable/rippler_white"
+                    android:layout_margin="10dp"
+                    android:text="浏览更多"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:onClick="@{(v)->data.setMaxValue()}"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textColor="#fff"
+                android:textSize="40sp"
+                android:text="@{data.viewModel.currentNum}"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" />
+
+            <SeekBar
+                android:id="@+id/num_seek_bar"
+                android:max="@{data.viewModel.maxMoney}"
+                android:maxHeight="8dp"
+                android:layout_margin="10dp"
+                android:progress="@={data.viewModel.money}"
+                android:progressDrawable="@drawable/seek_bar_bg"
+                android:thumb="@drawable/money_bag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:gravity="center"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="25dp"
+            android:textSize="18sp"
+            android:textColor="#fff"
+            android:text="添加到愿望单中"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</layout>

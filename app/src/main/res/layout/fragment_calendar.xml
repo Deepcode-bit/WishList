@@ -1,0 +1,88 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <data>
+                <variable
+                    type="com.dqpi.wishList.fragment.CalendarFragment"
+                    name="data"/>
+        </data>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/half_radius_bg"
+            tools:context="com.dqpi.wishList.fragment.CalendarFragment">
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                        <ImageView
+                            android:onClick="@{(v)->data.binding.calendarView.scrollToPre()}"
+                            android:src="@drawable/ic_chevron_left_black_24dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"/>
+                        <TextView
+                            android:textSize="30sp"
+                            android:textColor="@color/dark_blue"
+                            android:text="@{data.viewModel.year}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:textSize="30sp"
+                            android:textColor="@color/dark_blue"
+                            android:text="@{data.viewModel.month}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <ImageView
+                            android:onClick="@{(v)->data.binding.calendarView.scrollToNext()}"
+                            android:src="@drawable/ic_chevron_right_black_24dp"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"/>
+                </LinearLayout>
+
+                <Button
+                    android:onClick="@{(v)->data.binding.calendarView.scrollToCurrent()}"
+                    android:layout_gravity="end"
+                    android:background="@drawable/rippler_white"
+                    android:text="返回当前日期"
+                    android:layout_height="wrap_content"
+                    android:layout_width="100dp" />
+
+                <com.haibin.calendarview.CalendarView
+                    android:id="@+id/calendarView"
+                    app:scheme_theme_color="@color/light_pink"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:year_view="com.haibin.calendarview.DefaultYearView"
+                    app:week_bar_view="com.haibin.calendarview.WeekBar"
+                    app:calendar_height="50dp"
+                    app:current_month_text_color="#333333"
+                    app:current_month_lunar_text_color="@color/font_color_2"
+                    app:min_year="2004"
+                    app:other_month_text_color="#e1e1e1"
+                    app:scheme_text_color="@color/light_pink"
+                    app:scheme_lunar_text_color="@color/light_pink"
+                    app:selected_text_color="#fff"
+                    app:select_mode="default_mode"
+                    app:selected_lunar_text_color="#fff"
+                    app:selected_theme_color="@color/dark_blue"
+                    app:week_start_with="mon"
+                    app:month_view_show_mode="mode_only_current"
+                    app:week_text_size="14sp"
+                    app:week_text_color="@color/dark_blue" />
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:textSize="15sp"
+                    android:textColor="@color/light_pink"
+                    android:text="•粉色日期代表存过钱的日子"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content" />
+        </LinearLayout>
+</layout>
